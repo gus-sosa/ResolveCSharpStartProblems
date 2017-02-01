@@ -3,14 +3,20 @@
 namespace Pattern1 {
     class Program {
         static void PrintPattern(int num) {
-            for (int row = 1; row <= num; row++) {
-                string cadStart = "", cadEnd = "";
-                for (int col = 1; col < row; col++) {
-                    cadStart += col;
-                    cadEnd = cadEnd.Insert(0, "" + col);
+            for (int i = 1; i <= num; i++) {
+                for (int space = 1; space <= (num - i); space++) {
+                    Console.Write(" ");
                 }
-                var padding = new string(' ', num - row);
-                Console.WriteLine($"{padding}{cadStart}{row}{cadEnd}{padding}");
+
+                for (int j = 1; j <= i; j++) {
+                    Console.Write(j);
+                }
+
+                for (int k = (i - 1); k >= 1; k--) {
+                    Console.Write(k);
+                }
+
+                Console.WriteLine();
             }
         }
 
